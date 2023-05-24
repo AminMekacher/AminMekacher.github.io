@@ -104,10 +104,10 @@
       });
 
       sigInst.graph.edges().forEach(function(e) {
-        if (e.source === nodeId || e.target === nodeId)
+        if (e.source === nodeId || e.target === nodeId) {
           e.color = null;
 	  e.size = e.size * 10;
-        else
+	} else
           e.color = grayColor;
       });
 
