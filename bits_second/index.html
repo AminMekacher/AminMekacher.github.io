@@ -132,7 +132,8 @@
   }
 
   // When a node is clicked on, display the node data in a notice window
-    sigInst.bind("clickNode", function(e) {
+	  
+    /*sigInst.bind("clickNode", function(e) {
         console.log(e.type, e.data.node.label);
         var nodeId = e.data.node.id,
             toKeep = sigInst.graph.neighbors(nodeId);
@@ -154,7 +155,7 @@
 
       // Since the data has been modified,call the refresh method to make the colors update 
         sigInst.refresh();
-    });
+    });*/
 
   if (document.addEventListener)
     document.addEventListener("DOMContentLoaded", init, false);
