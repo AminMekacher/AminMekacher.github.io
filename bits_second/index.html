@@ -55,7 +55,6 @@
       defaultHoverLabelBGColor: "#888",
       defaultLabelBGColor: "#ddd",
       defaultEdgeType: "straight",
-      eventsEnabled: true,
 
       // Graph properties :
       minNodeSize: 3,
@@ -132,7 +131,7 @@
       sigInst.refresh();
     });
 	  
-    sigInst.bind("clickNode doubleClickNode rightClickNode", function(e) {
+    sigInst.bind("clickNode", function(e) {
       console.log(e.type, e.data.node.label);
       sigInst.refresh();
     });
