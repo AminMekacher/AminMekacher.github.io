@@ -129,6 +129,30 @@
     });
   }
 
+  // When a node is clicked on, display the node data in a notice window
+  sigInst.bind("clickNode", function(e) {
+      var nodeId = e.data.node.id,
+          toKeep = sigInst.graph.neighbors(nodeId);
+      toKeep[nodeId] = e.data.node;
+
+      sigInst.graph.nodes().forEach(function(n) {
+        if (toKeep[n.id])
+          n.color = grayColor;
+        else
+          n.color = n.originalColor;
+      });
+
+      sigInst.graph.edges().forEach(function(e) {
+        if (e.source === nodeId || e.target === nodeId) {
+          e.color = grayColor;
+	} else
+          e.color = grayColor;
+      });
+
+    // Since the data has been modified,call the refresh method to make the colors update 
+      sigInst.refresh();
+  });
+
   if (document.addEventListener)
     document.addEventListener("DOMContentLoaded", init, false);
   else
