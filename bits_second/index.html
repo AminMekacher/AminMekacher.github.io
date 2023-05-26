@@ -146,9 +146,13 @@
 	
       // Add text inside the window
       var para = document.createElement("p");
-      var node = document.createTextNode("This is Amin.");
+      var node = document.createTextNode("<b>Node attributes:</b>");
       para.appendChild(node);
       info.appendChild(para);
+      var degree = document.createElement("p");
+      var deg_text = document.createTextNode("<b>Degree:</b> ${e.data.node.attributes['Degree'].toString()}");
+      degree.appendChild(deg_text);
+      info.appendChild(degree);
       sigInst.refresh();
     });
   }
