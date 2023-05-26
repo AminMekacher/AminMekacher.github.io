@@ -12,6 +12,38 @@
   <style>
     body {margin:0; padding:0;}
     #sigma-container {position:absolute; top:0; bottom:0; width:100%;}
+	  
+   /**
+   * CAPTIONS PANELS:
+   * ****************
+   */
+   .panel {
+     background: white;
+     padding: 1em;
+     border-radius: var(--border-radius);
+     box-shadow: var(--shadow);
+   }
+   .panel:not(:last-child) {
+     margin-bottom: 0.5em;
+   }
+   .panel h2 button {
+      float: right;
+      background: white;
+      border: 1px solid black;
+      border-radius: var(--border-radius);
+      font-size: 1.2em;
+      height: 1em;
+      width: 1em;
+      text-align: center;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panel h2 button:hover {
+      opacity: var(--hover-opacity);
+    }
   </style>
 
 </head>
@@ -134,6 +166,7 @@
       console.log(e.type, e.data.node);
 	    
       var info = document.createElement('div');
+      info.className = "panel";
       info.style.backgroundColor = "rgb(240, 251, 250)";
       info.style.position = "absolute";
       info.style.right = "50px";
