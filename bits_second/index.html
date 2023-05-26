@@ -131,7 +131,7 @@
     });
 	  
     sigInst.bind("clickNode", function(e) {
-      console.log(e.type, e.data.node.attributes['Degree']);
+      console.log(e.type, e.data.node);
 	    
       var info = document.createElement('div');
       info.style.backgroundColor = "rgb(240, 251, 250)";
@@ -146,11 +146,11 @@
 	
       // Add text inside the window
       var para = document.createElement("p");
-      var node = document.createTextNode("Node attributes:".bold());
+      var node = document.createTextNode("Node attributes:");
       para.appendChild(node);
       info.appendChild(para);
       var degree = document.createElement("p");
-      var deg_text = document.createTextNode("Degree: ".bold() + e.data.node.attributes['Degree']);
+      var deg_text = document.createTextNode("Degree: " + e.data.node.attributes['Degree']);
       degree.appendChild(deg_text);
       info.appendChild(degree);
       sigInst.refresh();
