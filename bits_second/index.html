@@ -134,7 +134,7 @@
       console.log(e.type, e.data.node.attributes['Degree']);
 	    
       var info = document.createElement('div');
-      info.style.backgroundColor = "rgb(240, 231, 230)";
+      info.style.backgroundColor = "rgb(240, 251, 250)";
       info.style.position = "absolute";
       info.style.right = "50px";
       info.style.top = "50px";
@@ -146,11 +146,11 @@
 	
       // Add text inside the window
       var para = document.createElement("p");
-      var node = document.createTextNode("<b>Node attributes:</b>");
+      var node = document.createTextNode("Node attributes:".bold());
       para.appendChild(node);
       info.appendChild(para);
       var degree = document.createElement("p");
-      var deg_text = document.createTextNode("<b>Degree:</b> ${e.data.node.attributes['Degree'].toString()}");
+      var deg_text = document.createTextNode("Degree: ".bold() + e.data.node.attributes['Degree']);
       degree.appendChild(deg_text);
       info.appendChild(degree);
       sigInst.refresh();
