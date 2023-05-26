@@ -131,7 +131,7 @@
     });
 	  
     sigInst.bind("clickNode", function(e) {
-      console.log(e.type, e.data.node.attributes);
+      console.log(e.type, e.data.node.attributes['Degree']);
 	    
       var info = document.createElement('div');
       info.style.backgroundColor = "rgb(240, 231, 230)";
