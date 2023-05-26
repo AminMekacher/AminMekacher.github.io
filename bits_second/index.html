@@ -92,7 +92,7 @@
 
     var grayColor = "#ccc";
     sigInst.bind("overNode", function(e) {
-      console.log(e.type, e.data.node.label);
+      //console.log(e.type, e.data.node.label);
       var nodeId = e.data.node.id,
           toKeep = sigInst.graph.neighbors(nodeId);
       toKeep[nodeId] = e.data.node;
@@ -118,7 +118,7 @@
 
     // When a node is no longer being hovered over, return to original colors
     sigInst.bind("outNode", function(e) {
-      console.log(e.type, e.data.node.label);
+      //console.log(e.type, e.data.node.label);
       sigInst.graph.nodes().forEach(function(n) {
         n.color = n.originalColor;
       });
@@ -131,10 +131,10 @@
     });
 	  
     sigInst.bind("clickNode", function(e) {
-      console.log(e.type, e.data, e.data.node);
+      console.log(e.type, e.data.node.attributes);
 	    
       var info = document.createElement('div');
-      info.style.backgroundColor = "rgb(230, 221, 220)";
+      info.style.backgroundColor = "rgb(240, 231, 230)";
       info.style.position = "absolute";
       info.style.right = "50px";
       info.style.top = "50px";
