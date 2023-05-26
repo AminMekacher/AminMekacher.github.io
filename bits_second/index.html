@@ -140,8 +140,15 @@
       info.style.top = "50px";
       info.style.width = "300px";
       info.style.height = "150px";
+      info.opacity = "50%";
 
       document.getElementsByTagName('body')[0].appendChild(info);
+	
+      // Add text inside the window
+      var para = document.createElement("p");
+      var node = document.createTextNode("This is Amin.");
+      para.appendChild(node);
+      info.appendChild(para);
       sigInst.refresh();
     });
   }
