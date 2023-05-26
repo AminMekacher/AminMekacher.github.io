@@ -131,16 +131,16 @@
     });
 	  
     sigInst.bind("clickNode", function(e) {
-      console.log(e.type, e.data.node.label);
+      console.log(e.type, e.data, e.data.node);
 	    
       var info = document.createElement('div');
       info.style.backgroundColor = "rgb(230, 221, 220)";
       info.style.position = "absolute";
-      info.style.left = "50px";
+      info.style.right = "50px";
       info.style.top = "50px";
       info.style.width = "300px";
       info.style.height = "150px";
-      info.opacity = "50%";
+      info.opacity = "20%";
 
       document.getElementsByTagName('body')[0].appendChild(info);
 	
