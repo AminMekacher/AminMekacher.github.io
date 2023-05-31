@@ -22,6 +22,7 @@
      padding: 1em;
      border-radius: 3px;
      box-shadow: 0 1px 5px #666;
+     width: 300px;
    }
    .panel:not(:last-child) {
      margin-bottom: 0.5em;
@@ -167,14 +168,14 @@
 	    
       var info = document.createElement('div');
       info.className = "panel";
-      //info.style.backgroundColor = "rgb(240, 251, 250)";
-      //info.style.position = "absolute";
-      //info.style.right = "50px";
-      //info.style.top = "50px";
-      //info.style.width = "300px";
-      //info.style.height = "150px";
-      //info.opacity = "20%";
-
+      info.id = 'attributes_popup';
+	    
+      if (document.contains(document.getElementById("attributes_popup"))) {
+      	document.getElementById("attributes_popup").remove();
+      }   else {
+        document.getElementsByTagName('body')[0].appendChild(info);
+      }
+	  
       document.getElementsByTagName('body')[0].appendChild(info);
 	
       // Add text inside the window
