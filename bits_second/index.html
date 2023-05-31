@@ -184,10 +184,31 @@
       var node = document.createTextNode(e.data.node.label);
       para.appendChild(node);
       info.appendChild(para);
+
+      // Add the degree to the panel
       var degree = document.createElement("p");
       var deg_text = document.createTextNode("Degree: " + e.data.node.attributes['Degree']);
       degree.appendChild(deg_text);
       info.appendChild(degree);
+	
+      // Add the community to the panel
+      var community = document.createElement("p");
+      var com_text = document.createTextNode("Community: " + e.data.node.attributes['Modularity Class']);
+      community.appendChild(com_text);
+      info.appendChild(community);
+	    
+      // Add the betweenness centrality to the panel
+      var betweennness = document.createElement("p");
+      var betw_text = document.createTextNode("Community: " + e.data.node.attributes['Betweenness Centrality']);
+      betweennness.appendChild(betw_text);
+      info.appendChild(betweennness);
+	    
+      // Add the PageRank to the panel
+      var pagerank = document.createElement("p");
+      var pr_text = document.createTextNode("PageRank: " + e.data.node.attributes['PageRank']);
+      pagerank.appendChild(pr_text);
+      info.appendChild(pagerank);
+	    
       sigInst.refresh();
     });
   }
