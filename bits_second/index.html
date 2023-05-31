@@ -181,7 +181,7 @@
 	
       // Add text inside the window
       var para = document.createElement("h2");
-      var node = document.createTextNode("Node attributes:");
+      var node = document.createTextNode(e.data.node.attributes['label']);
       para.appendChild(node);
       info.appendChild(para);
       var degree = document.createElement("p");
