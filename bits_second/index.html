@@ -12,6 +12,20 @@
   <style>
     body {margin:0; padding:0;}
     #sigma-container {position:absolute; top:0; bottom:0; width:100%;}
+   
+   // SLIDER
+   .slider-color {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+    float: left;
+    }
 	  
    /**
    * CAPTIONS PANELS:
@@ -120,7 +134,16 @@
       }
     );
 
-
+     // Add the slider to the upper-left corner
+     var slider = document.createElement('input');
+     slider.className = "slider-color";
+     slider.type = "range";
+     slider.min = 1;
+     slider.max = 100;
+     slider.value = 50;
+     slider.id = "slider_filter";
+     document.getElementsByTagName('body')[0].appendChild(slider);
+     
      // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
      // Do the same for the edges
 
