@@ -153,6 +153,7 @@
     sigInst.bind("overNode", function(e) {
       //console.log(e.type, e.data.node.label);
       var nodeId = e.data.node.id,
+	  nodeColor = e.data.node.color,
           toKeep = sigInst.graph.neighbors(nodeId);
       toKeep[nodeId] = e.data.node;
 
@@ -165,7 +166,7 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
-          e.color = e.data.node.color;
+          e.color = nodeColor;
 	  e.size = e.size * 10;
 	} else
 	  e.hidden = true;
