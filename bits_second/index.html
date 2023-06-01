@@ -165,7 +165,7 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
-          e.color = null;
+          e.color = e.data.node.color;
 	  e.size = e.size * 10;
 	} else
 	  e.hidden = true;
