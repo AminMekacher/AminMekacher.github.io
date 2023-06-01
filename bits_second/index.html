@@ -168,6 +168,7 @@
           e.color = null;
 	  e.size = e.size * 10;
 	} else
+	  e.hidden = true;
           e.color = grayColor;
       });
 
@@ -184,6 +185,7 @@
 
       sigInst.graph.edges().forEach(function(e) {
         e.color = null;
+	e.hidden = false;
       });
 
       sigInst.refresh();
