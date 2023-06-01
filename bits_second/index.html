@@ -135,6 +135,7 @@
     );
 
      // Add the slider to the upper-left corner
+     var p_slider = document.createElement('p');
      var slider = document.createElement('input');
      slider.className = "slider-color";
      slider.type = "range";
@@ -142,7 +143,8 @@
      slider.max = 100;
      slider.value = 50;
      slider.id = "slider_filter";
-     document.getElementsByTagName('body')[0].appendChild(slider);
+     p_slider.appendChild(slider);
+     document.getElementsByTagName('body')[0].appendChild(p_slider);
      
      // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
      // Do the same for the edges
