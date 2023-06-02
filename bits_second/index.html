@@ -168,7 +168,7 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           e.color = nodeColor;
-	  e.size = e.size * 10;
+          console.log(e);
 	} else
 	  e.hidden = true;
           e.color = grayColor;
