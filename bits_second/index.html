@@ -122,6 +122,7 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
+          e.originalSize = e.size;
         });
 
         // Also, to facilitate the update of node colors, store
@@ -169,7 +170,7 @@
         if (e.source === nodeId || e.target === nodeId) {
           //e.color = nodeColor;
           console.log(e);
-          e.size = 5 * e.size;
+          e.size = 5 * e.originalSize;
 	  console.log(e);
 	} else
 	  e.hidden = true;
@@ -190,6 +191,7 @@
       sigInst.graph.edges().forEach(function(e) {
         //e.color = null;
 	e.hidden = false;
+	e.size = e.originalSize;
       });
 
       sigInst.refresh();
