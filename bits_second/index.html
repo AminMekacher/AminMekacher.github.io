@@ -151,9 +151,10 @@
 
     var grayColor = "#ccc";
     sigInst.bind("overNode", function(e) {
+      console.log(e.data.node.color, e.originalColor);
       //console.log(e.type, e.data.node.label);
       var nodeId = e.data.node.id,
-	  nodeColor = e.data.node.color,
+	  nodeColor = e.originalColor,
           toKeep = sigInst.graph.neighbors(nodeId);
       toKeep[nodeId] = e.data.node;
 
