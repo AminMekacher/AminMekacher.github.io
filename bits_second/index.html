@@ -169,6 +169,8 @@
         if (e.source === nodeId || e.target === nodeId) {
           //e.color = nodeColor;
           console.log(e);
+          e.size = 5 * e.size;
+	  console.log(e);
 	} else
 	  e.hidden = true;
           //e.color = grayColor;
