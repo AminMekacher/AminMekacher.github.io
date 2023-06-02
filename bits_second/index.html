@@ -11,7 +11,7 @@
 
   <style>
     body {margin:0; padding:0;}
-    #sigma-container {width:100%;}
+    #sigma-container {width:100%; height:100%}
    
    // SLIDER
    .slider-color {
@@ -199,18 +199,6 @@
         sigInst.refresh();
       }
     );
-
-     // Add the slider to the upper-left corner
-     var p_slider = document.createElement('p');
-     var slider = document.createElement('input');
-     //slider.className = "slider-color";
-     slider.type = "range";
-     slider.min = 1;
-     slider.max = 100;
-     slider.value = 50;
-     slider.id = "slider_filter";
-     p_slider.appendChild(slider);
-     document.getElementsByTagName('body')[0].appendChild(p_slider);
      
      // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
      // Do the same for the edges
