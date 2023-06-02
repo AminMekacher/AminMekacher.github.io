@@ -167,11 +167,11 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
-          e.color = nodeColor;
+          //e.color = nodeColor;
           console.log(e);
 	} else
 	  e.hidden = true;
-          e.color = grayColor;
+          //e.color = grayColor;
       });
 
     // Since the data has been modified,call the refresh method to make the colors update 
@@ -186,7 +186,7 @@
       });
 
       sigInst.graph.edges().forEach(function(e) {
-        e.color = null;
+        //e.color = null;
 	e.hidden = false;
       });
 
