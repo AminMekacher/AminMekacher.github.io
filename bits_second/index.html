@@ -226,9 +226,6 @@
         sigInst.refresh();
       }
     );
-     
-     /* When the user clicks on the button, 
-	toggle between hiding and showing the dropdown content */
 
      // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
      // Do the same for the edges
@@ -250,7 +247,8 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
-          //e.color = nodeColor;
+          e.color = nodeColor;
+	  e.size = 5 * e.originalSize;
 	} else
 	  e.hidden = true;
           //e.color = grayColor;
