@@ -260,6 +260,7 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
+	  console.log(e);
           e.color = nodeColor;
 	} else
 	  e.hidden = true;
