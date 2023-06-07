@@ -197,8 +197,8 @@
       // Graph properties :
       minNodeSize: 3,
       maxNodeSize: 10,
-      minEdgeSize: 0.4,
-      maxEdgeSize: 2,
+      minEdgeSize: 0.1,
+      maxEdgeSize: 5,
 
       // Mouse properties :
       zoomMax: 20 
@@ -213,7 +213,7 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
-	  e.originalSize = 0.3;
+	  e.originalSize = 0.1;
           //e.originalSize = e.size;
         });
 
@@ -249,7 +249,7 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           e.color = nodeColor;
-	  e.size = 3;
+	  e.size = 4;
 	} else
 	  e.hidden = true;
           //e.color = grayColor;
