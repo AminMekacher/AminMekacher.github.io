@@ -230,7 +230,7 @@
 	      
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
-	  n.size = (5 - 0.2) * (x - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 0.2;
+	  n.size = (5 - 0.2) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 0.2;
 	  n.originalSize = n.size;
           //n.size = 5;
         });
