@@ -135,7 +135,7 @@
 	  <a href="#home">Home</a>
 	  <a href="#news">News</a>
 	  <div class="dropdown">
-	  <button class="dropbtn" onclick="sizeOnclick()">Node size attribute
+	  <button class="dropbtn">Node size attribute
 	    <i class="fa fa-caret-down"></i>
 	  </button>
 	  <div class="dropdown-content" id="sizeDropdown">
@@ -218,9 +218,6 @@
      
      /* When the user clicks on the button, 
 	toggle between hiding and showing the dropdown content */
-     function sizeOnclick() {
-     	document.getElementById("sizeDropdown").classList.toggle("show");
-     }
 
      // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
      // Do the same for the edges
@@ -319,7 +316,13 @@
 	    
       sigInst.refresh();
     });
-  }
+	  
+    // onClick events for dropdown menus
+
+    document.getElementById("advanceStepButton").addEventListener("click", function() {
+    	document.getElementById("sizeDropdown").classList.toggle("show"); 
+   }
+}
 
   if (document.addEventListener)
     document.addEventListener("DOMContentLoaded", init, false);
