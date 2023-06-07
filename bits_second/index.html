@@ -249,6 +249,7 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           e.color = nodeColor;
+	  console.log(e);
 	  e.size = 4;
 	} else
 	  e.hidden = true;
@@ -269,7 +270,7 @@
       sigInst.graph.edges().forEach(function(e) {
         //e.color = null;
 	e.hidden = false;
-	e.size = e.originalSize;
+	e.size = 0.1;
       });
 
       sigInst.refresh();
