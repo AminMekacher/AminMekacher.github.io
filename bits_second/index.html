@@ -198,7 +198,7 @@
       minNodeSize: 3,
       maxNodeSize: 9,
       minEdgeSize: 0.05,
-      maxEdgeSize: 0.9,
+      maxEdgeSize: 1.1,
 
       // Mouse properties :
       zoomMax: 20 
@@ -221,7 +221,7 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
-	  e.size = (0.9 - 0.05) * (e.size - minEdgeOriginalSize) / (maxEdgeOriginalSize - minEdgeOriginalSize) + 0.05;
+	  e.size = (1.1 - 0.05) * (e.size - minEdgeOriginalSize) / (maxEdgeOriginalSize - minEdgeOriginalSize) + 0.05;
           e.originalSize = e.size;
         });
 	
@@ -250,7 +250,7 @@
     var grayColor = "#ccc";
     sigInst.bind("overNode", function(e) {
       e.data.node.size = 1.5 * e.data.node.size;
-      console.log(e.data.node.size);
+    
       var nodeId = e.data.node.id,
 	  nodeColor = e.originalColor,
           toKeep = sigInst.graph.neighbors(nodeId);
@@ -266,6 +266,8 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           e.color = nodeColor;
+	  e.size = 1.5 * e.size;
+	  console.log(e);
 	} else
 	  e.hidden = true;
       });
