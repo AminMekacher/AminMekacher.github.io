@@ -209,6 +209,7 @@
       "data/senate.json",
       sigInst,
       function() {
+	      
 		//  Little hack here:
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
@@ -217,11 +218,19 @@
 	  //e.originalSize = 0.1;
           e.originalSize = e.size;
         });
-
+	
+	var maxNodeOriginalSize = 0;
+	var minNodeOriginalSize = 100;
         // Also, to facilitate the update of node colors, store
         // their original color under the key originalColor:
+	sigInst.graph.nodes().forEach(function(n) {
+	  if (n.size > maxNodeOriginalSize) {maxNodeOriginalSize = n.size;}
+	  if (n.size < minNodeOriginalSize) {minNodeOriginalSize = n.size;}
+	});
+	      
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
+	  n.size = (5 - 0.2) * (x - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 0.2;
 	  n.originalSize = n.size;
           //n.size = 5;
         });
