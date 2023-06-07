@@ -213,6 +213,7 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
+	  e.size = 0.1;
 	  e.originalSize = 0.1;
           //e.originalSize = e.size;
         });
