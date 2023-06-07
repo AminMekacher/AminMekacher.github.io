@@ -198,7 +198,7 @@
       minNodeSize: 3,
       maxNodeSize: 9,
       minEdgeSize: 0.05,
-      maxEdgeSize: 1,
+      maxEdgeSize: 0.9,
 
       // Mouse properties :
       zoomMax: 20 
@@ -209,13 +209,20 @@
       "data/senate.json",
       sigInst,
       function() {
+	var maxEdgeOriginalSize = 0;
+	var minEdgeOriginalSize = 100;
+	      
+	sigInst.graph.edges().forEach(function(e) {
+	  if (e.size > maxEdgeOriginalSize) {maxEdgeOriginalSize = e.size;}
+	  if (e.size < minEdgeOriginalSize) {minEdgeOriginalSize = e.size;}
+	});
 	      
 		//  Little hack here:
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
-	  e.size = 0.3;
-          //e.originalSize = e.size;
+	  e.size = (0.9 - 0.05) * (e.size - minEdgeOriginalSize) / (maxEdgeOriginalSize - minEdgeOriginalSize) + 0.05;
+          e.originalSize = e.size;
         });
 	
 	var maxNodeOriginalSize = 0;
@@ -230,9 +237,7 @@
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
 	  n.size = (9 - 3) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 3;
-	  console.log(n.size);
 	  n.originalSize = n.size;
-          //n.size = 5;
         });
 
         sigInst.refresh();
@@ -260,7 +265,6 @@
 
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
-	  console.log(e);
           e.color = nodeColor;
 	} else
 	  e.hidden = true;
