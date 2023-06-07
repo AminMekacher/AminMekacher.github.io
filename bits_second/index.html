@@ -195,8 +195,8 @@
       autoRescale: ['nodePosition', 'edgeSize'],
 
       // Graph properties :
-      minNodeSize: 1,
-      maxNodeSize: 8,
+      minNodeSize: 3,
+      maxNodeSize: 9,
       minEdgeSize: 0.05,
       maxEdgeSize: 1,
 
@@ -229,7 +229,7 @@
 	      
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
-	  n.size = (8 - 1) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 1;
+	  n.size = (9 - 3) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 3;
 	  console.log(n.size);
 	  n.originalSize = n.size;
           //n.size = 5;
