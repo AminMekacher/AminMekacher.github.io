@@ -195,8 +195,8 @@
       autoRescale: ['nodePosition', 'edgeSize'],
 
       // Graph properties :
-      minNodeSize: 0.2,
-      maxNodeSize: 5,
+      minNodeSize: 2,
+      maxNodeSize: 10,
       minEdgeSize: 0.1,
       maxEdgeSize: 5,
 
@@ -214,8 +214,7 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
-	  // e.size = 0.1;
-	  //e.originalSize = 0.1;
+	  e.size = 0.1;
           e.originalSize = e.size;
         });
 	
@@ -261,11 +260,8 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           e.color = nodeColor;
-	  console.log(e);
-	  //e.size = 4;
 	} else
 	  e.hidden = true;
-          //e.color = grayColor;
       });
 
     // Since the data has been modified,call the refresh method to make the colors update 
@@ -282,7 +278,6 @@
       sigInst.graph.edges().forEach(function(e) {
         //e.color = null;
 	e.hidden = false;
-	e.size = 0.1;
       });
 
       sigInst.refresh();
