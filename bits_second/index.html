@@ -195,10 +195,10 @@
       autoRescale: ['nodePosition', 'edgeSize'],
 
       // Graph properties :
-      minNodeSize: 2,
-      maxNodeSize: 10,
-      minEdgeSize: 0.1,
-      maxEdgeSize: 5,
+      minNodeSize: 1,
+      maxNodeSize: 8,
+      minEdgeSize: 0.01,
+      maxEdgeSize: 3,
 
       // Mouse properties :
       zoomMax: 20 
@@ -214,8 +214,8 @@
 		//  In the latest Sigma.js version have to delete edges" colors manually
         sigInst.graph.edges().forEach(function(e) {
           e.color = null;
-	  e.size = 0.1;
-          e.originalSize = e.size;
+	  e.size = 0.05;
+          //e.originalSize = e.size;
         });
 	
 	var maxNodeOriginalSize = 0;
@@ -229,7 +229,7 @@
 	      
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
-	  n.size = (10 - 2) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 2;
+	  n.size = (8 - 1) * (n.size - minNodeOriginalSize) / (maxNodeOriginalSize - minNodeOriginalSize) + 1;
 	  console.log(n.size);
 	  n.originalSize = n.size;
           //n.size = 5;
@@ -244,7 +244,7 @@
 
     var grayColor = "#ccc";
     sigInst.bind("overNode", function(e) {
-      e.data.node.size = 2 * e.data.node.size;
+      e.data.node.size = 1.5 * e.data.node.size;
       console.log(e.data.node.size);
       var nodeId = e.data.node.id,
 	  nodeColor = e.originalColor,
