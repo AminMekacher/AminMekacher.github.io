@@ -219,6 +219,7 @@
         // their original color under the key originalColor:
         sigInst.graph.nodes().forEach(function(n) {
           n.originalColor = n.color;
+          n.size = 5;
         });
 
         sigInst.refresh();
@@ -233,8 +234,7 @@
 
     var grayColor = "#ccc";
     sigInst.bind("overNode", function(e) {
-      console.log(e.data.node.color, e.originalColor);
-      //console.log(e.type, e.data.node.label);
+      e.data.node.size = 10;
       var nodeId = e.data.node.id,
 	  nodeColor = e.originalColor,
           toKeep = sigInst.graph.neighbors(nodeId);
@@ -250,9 +250,6 @@
       sigInst.graph.edges().forEach(function(e) {
         if (e.source === nodeId || e.target === nodeId) {
           //e.color = nodeColor;
-          console.log(e);
-          e.size = 5 * e.originalSize;
-	  console.log(e);
 	} else
 	  e.hidden = true;
           //e.color = grayColor;
@@ -264,7 +261,7 @@
 
     // When a node is no longer being hovered over, return to original colors
     sigInst.bind("outNode", function(e) {
-      //console.log(e.type, e.data.node.label);
+      e.data.node.size = 5;
       sigInst.graph.nodes().forEach(function(n) {
         n.color = n.originalColor;
       });
